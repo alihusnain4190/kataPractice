@@ -1,5 +1,5 @@
 const fs = require("fs/promises");
-const exec = require("child_process").execFile;
+const { exec, spawn } = require("child_process");
 function top() {
   //     return fs.mkdir('project').then(() => {
 
@@ -15,15 +15,16 @@ function top() {
       });
     })
     .then(() => {
-      return fs.writeFile("package.json", "").then(() => {
-    return new Promise((resolve, reject) => {
-            exec(fileName, params, { cwd: path }, (err, data) => {
-                if (err) reject(err);
-                else resolve(data);
-            });
-    
+      return new Promise(function (resolve, reject) {
+        exec("npm init -y", (error, stdout, stderr) => {
+          if (error) {
+            console.log(error);
+            reject(error);
+            return;
+          }
+
+          resolve(stdout.trim());
         });
-        return promise;
       });
     })
     .then(() => {
