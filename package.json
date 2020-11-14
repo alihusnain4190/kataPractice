@@ -1,0 +1,26 @@
+{
+  "name": "katapractice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "addBinary.js",
+  "directories": {
+    "test": "test test/app.spec.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^26.6.3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alihusnain4190/kataPractice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alihusnain4190/kataPractice/issues"
+  },
+  "homepage": "https://github.com/alihusnain4190/kataPractice#readme"
+}
