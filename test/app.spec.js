@@ -6,6 +6,9 @@ const {
   areOrdered,
   orderVeg,
   checkUsernames,
+  max,
+  min,
+  range
 } = require("../app");
 describe("sumArgs", () => {
   it("add all passing argument", () => {
@@ -137,5 +140,35 @@ describe.only("checkUsernames", () => {
   
     const input = "1231213";
     expect(checkUsernames(input)).toBe(false);
+  });
+});
+
+describe("max", () => {
+  it("return maximum value from array", () => {
+    // expect(max(???)).to...
+    expect(max([1, 2, 3, 4, 3, 2, 6])).toBe(6);
+  });
+});
+
+describe("min", () => {
+  it("return minimum value from array", () => {
+    // expect(min(???)).to...
+    expect(min([1, 2, 3, 4, 3, 2, 6])).toBe(1);
+  });
+});
+describe("range", () => {
+  it.only("return array which start from 0 to givin number", () => {
+
+    // expect(orderVeg(input)).toEqual(output);
+    expect(range(5)).toEqual([0, 1, 2, 3, 4, 5]);
+  });
+  it.only("return array which start from  to givin number and start value", () => {
+    expect(range(5, 3)).toEqual([3, 4, 5]);
+  });
+  it.only("return array which start from  to givin number and stop also on a givin number", () => {
+    expect(range(5, 3)).toEqual([3, 4, 5]);
+  });
+  it.only("return array which start from  to givin number and stop also on a givin number and also define length", () => {
+    expect(range(5, 2, 2)).toEqual([2, 4, 6, 8, 10]);
   });
 });

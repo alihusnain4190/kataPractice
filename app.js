@@ -103,27 +103,59 @@ should return:
 function orderVeg(array) {
   if (array.length === 0) return array;
 
-return array.sort((a,b)=>{
-  
-  return a.quantity-b.quantity;
-})
+  return array.sort((a, b) => {
+    return a.quantity - b.quantity;
+  });
 }
-
-/*
-  The function checkUsernames should take an array of usernames and return true if they are all valid and false if any are not valid.
-  A valid username:
-  - is at least 5 characters long
-  - may only contain lowercase letters, numbers and underscores
-  - is no longer than 20 characters
-*/
-
 function checkUsernames(input) {
   const regix = /[a-z]+\d*_/g;
   const res = regix.test(input);
-
   return res;
 }
+function max(input) {
+  let count = input[0];
+  input.forEach((element) => {
+    if (element > count) {
+      count = element;
+    }
+  });
+  return count;
+  //
+  // return Math.max(...input);
+}
 
+function min(input) {
+  // let count=input[0];
+  // input.forEach(element => {
+  //   if(element<count){
+  //     count=element;
+  //   }
+  // });
+  // return count;
+
+  return Math.min(...input);
+}
+
+/*
+  The function range should take up to 3 arguments: a length, a start value and a step value.
+  If it has only a length, it should return an array of numbers from 0 with length specified.
+  If it also has a start value the returned array should start at this value instead of 0.
+  If there is also a step value the numbers in the array should increase by the specified step.
+  E.g. range(5) --> [0, 1, 2, 3, 4]
+  range(5, 2) --> [2, 3, 4, 5, 6]
+  range(5, 2, 2) --> [2, 4, 6, 8, 10]
+*/
+
+function range(num, start = 0, difference = 1) {
+  let arr = [];
+  if (num) {
+    num = num * difference;
+    for (let i = start; i <= num; i = i + difference) {
+      arr.push(i);
+    }
+  }
+  return arr;
+}
 module.exports = {
   sumArgs,
   countVeg,
@@ -131,5 +163,8 @@ module.exports = {
   double,
   areOrdered,
   orderVeg,
-  checkUsernames
+  checkUsernames,
+  max,
+  min,
+  range,
 };
