@@ -8,7 +8,10 @@ const {
   checkUsernames,
   max,
   min,
-  range
+  range,
+  removeDuplicates,
+  sumAscii,
+  findUniq,
 } = require("../app");
 describe("sumArgs", () => {
   it("add all passing argument", () => {
@@ -130,14 +133,12 @@ describe("orderVeg", () => {
     expect(orderVeg(input)).toEqual(output);
   });
 });
-describe.only("checkUsernames", () => {
+describe("checkUsernames", () => {
   it("return true if you pass proper required user name", () => {
-    
     const input = "myphone_123";
     expect(checkUsernames(input)).toBe(true);
   });
   it("return falase if you pass proper required user name", () => {
-  
     const input = "1231213";
     expect(checkUsernames(input)).toBe(false);
   });
@@ -157,18 +158,59 @@ describe("min", () => {
   });
 });
 describe("range", () => {
-  it.only("return array which start from 0 to givin number", () => {
-
+  it("return array which start from 0 to givin number", () => {
     // expect(orderVeg(input)).toEqual(output);
     expect(range(5)).toEqual([0, 1, 2, 3, 4, 5]);
   });
-  it.only("return array which start from  to givin number and start value", () => {
+  it("return array which start from  to givin number and start value", () => {
     expect(range(5, 3)).toEqual([3, 4, 5]);
   });
-  it.only("return array which start from  to givin number and stop also on a givin number", () => {
+  it("return array which start from  to givin number and stop also on a givin number", () => {
     expect(range(5, 3)).toEqual([3, 4, 5]);
   });
-  it.only("return array which start from  to givin number and stop also on a givin number and also define length", () => {
+  it("return array which start from  to givin number and stop also on a givin number and also define length", () => {
     expect(range(5, 2, 2)).toEqual([2, 4, 6, 8, 10]);
+  });
+});
+describe("removeDuplicates", () => {
+  it("return array after remove dublicate number", () => {
+    expect(removeDuplicates([1, 2, 3, 4, 5, 3, 2, 1, 4])).toEqual([
+      1,
+      2,
+      3,
+      4,
+      5,
+    ]);
+  });
+});
+describe("sumAscii", () => {
+  it("return a name who has highest score based on ASCII code", () => {
+    // expect(sumAscii())Hu...
+    expect(sumAscii(["ali", "Husnain", "Raza"])).toEqual(758);
+  });
+});
+describe.only("findUniq", () => {
+  it("return unique number from array", () => {
+      expect(findUniq([1, 1, 1, 2, 1, 1])).toBe(2);
+    const input = [
+      NaN,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.141592653589793,
+      3.2
+    ];
+    expect(findUniq(input)).toBe(3.2);
   });
 });

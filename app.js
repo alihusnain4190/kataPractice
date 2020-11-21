@@ -156,8 +156,40 @@ function range(num, start = 0, difference = 1) {
   }
   return arr;
 }
+/*
+  The function removeDuplicates should take an array and return a new array with any duplicate items removed. The original order should be maintained.
+*/
+
+function removeDuplicates(input) {
+  return input.filter((element, index, array) => {
+    if (array.indexOf(element) === index) return element;
+  });
+}
+/*
+  The function sumAscii should take an array of names and calculate each name's score based on the total of each character's lowercase ASCII value. It should return the name with the highest score.
+  E.g. the name 'John' would get the score 431 because 'j' has the ASCII code 106, 'o' has the ASCII code 111, 'h' has the ASCII code 104 and 'n' has the ASCII code 110.
+*/
+
+function sumAscii(arr) {
+  let array = [];
+  for (let i = 0; i < arr.length; i++) {
+    let sum = 0;
+    for (let j = 0; j < arr[i].length; j++) {
+      sum = sum + arr[i][j].toLowerCase().charCodeAt(0);
+    }
+    array.push(sum);
+  }
+  return Math.max(...array);
+}
+function findUniq(arr) {
+  return arr.find((n) => {
+    if (n === n) {
+      return arr.indexOf(n) === arr.lastIndexOf(n);
+    }
+  });
+}
+module.exports = sumAscii;
 module.exports = {
-  sumArgs,
   countVeg,
   alternateCase,
   double,
@@ -167,4 +199,7 @@ module.exports = {
   max,
   min,
   range,
+  removeDuplicates,
+  sumAscii,
+  findUniq,
 };
