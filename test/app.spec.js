@@ -12,6 +12,8 @@ const {
   removeDuplicates,
   sumAscii,
   findUniq,
+  store,
+  getDistinctLetters
 } = require("../app");
 describe("sumArgs", () => {
   it("add all passing argument", () => {
@@ -189,9 +191,9 @@ describe("sumAscii", () => {
     expect(sumAscii(["ali", "Husnain", "Raza"])).toEqual(758);
   });
 });
-describe.only("findUniq", () => {
+describe("findUniq", () => {
   it("return unique number from array", () => {
-      expect(findUniq([1, 1, 1, 2, 1, 1])).toBe(2);
+    expect(findUniq([1, 1, 1, 2, 1, 1])).toBe(2);
     const input = [
       NaN,
       3.141592653589793,
@@ -209,8 +211,22 @@ describe.only("findUniq", () => {
       3.141592653589793,
       3.141592653589793,
       3.141592653589793,
-      3.2
+      3.2,
     ];
     expect(findUniq(input)).toBe(3.2);
+  });
+});
+describe("Store", () => {
+  it("remove stone on table which adjacent and same color", () => {
+    expect(store("RGBRGBRGGB")).toBe(1);
+    expect(store("RGGRGBBRGRR")).toBe(3);
+    expect(store("RRRRGGGGBBBB")).toBe(9);
+  });
+});
+
+describe("getDistinctLetters", () => {
+  it.only("describe what happens if this test succeeds here", () => {
+    // expect(getDistinctLetters("abc", "adc")).toBe("bd");
+     expect(getDistinctLetters("hello", "world")).toBe("dehrw");
   });
 });

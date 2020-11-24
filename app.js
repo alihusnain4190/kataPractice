@@ -188,6 +188,46 @@ function findUniq(arr) {
     }
   });
 }
+function store(str) {
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i + 1]) {
+      count++;
+    }
+  }
+  return count;
+}
+/*
+  The function getDistinctLetters should take two strings and return a string of all the letters that are unique to either of the input strings, in alphabetical order.
+
+  For example, when given 'hello' and 'world', the function should return 'dehrw'
+  This is because h and e are in 'hello' but not in 'world', and w, r and d are in 'world' but not in 'hello'. hewrd' sorted => '
+  '
+*/
+
+function getDistinctLetters(str1, str2) {
+ 
+  let total = 0;
+  if (str1.length > str2.length) {
+    total = str1.length;
+  } else {
+    total = str2.length;
+  }
+  let newStr = [];
+  for (let i = 0; i < total; i++) {
+    if (str2.indexOf(str1[i]) === -1) {
+      newStr.push(str1[i]);
+    }
+    if (str1.indexOf(str2[i]) === -1) {
+      newStr.push(str2[i]);
+    }
+  }
+  return newStr.sort().join("");
+ 
+
+
+}
+
 module.exports = sumAscii;
 module.exports = {
   countVeg,
@@ -202,4 +242,6 @@ module.exports = {
   removeDuplicates,
   sumAscii,
   findUniq,
+  store,
+  getDistinctLetters,
 };
