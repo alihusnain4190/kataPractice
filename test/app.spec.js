@@ -13,7 +13,10 @@ const {
   sumAscii,
   findUniq,
   store,
-  getDistinctLetters
+  getDistinctLetters,
+  multiTable,
+  getMostRepeated,
+getFrequencies
 } = require("../app");
 describe("sumArgs", () => {
   it("add all passing argument", () => {
@@ -225,8 +228,36 @@ describe("Store", () => {
 });
 
 describe("getDistinctLetters", () => {
-  it.only("describe what happens if this test succeeds here", () => {
-    // expect(getDistinctLetters("abc", "adc")).toBe("bd");
-     expect(getDistinctLetters("hello", "world")).toBe("dehrw");
+  it("describe what happens if this test succeeds here", () => {
+    expect(getDistinctLetters("abc", "adc")).toBe("bd");
+    expect(getDistinctLetters("hello", "world")).toBe("dehrw");
+  });
+});
+
+describe("multiTable", () => {
+  it("return multipletable of givin number", () => {
+    expect(multiTable(1)).toBe(
+      "1 * 1 = 1\n2 * 1 = 2\n3 * 1 = 3\n4 * 1 = 4\n5 * 1 = 5\n6 * 1 = 6\n7 * 1 = 7\n8 * 1 = 8\n9 * 1 = 9\n10 * 1 = 10"
+    );
+  });
+});
+
+describe("getMostRepeated", () => {
+  it("describe what happens if this test succeeds here", () => {
+    expect(getMostRepeated("hello world")).toBe("l");
+  });
+});
+
+describe.only("getFrequencies", () => {
+  it("describe what happens if this test succeeds here", () => {
+    expect(getFrequencies("hello world")).toEqual({
+      h: 1,
+      e: 1,
+      l: 3,
+      o: 2,
+      w: 1,
+      r: 1,
+      d: 1,
+    });
   });
 });

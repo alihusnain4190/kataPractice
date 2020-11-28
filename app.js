@@ -206,7 +206,6 @@ function store(str) {
 */
 
 function getDistinctLetters(str1, str2) {
- 
   let total = 0;
   if (str1.length > str2.length) {
     total = str1.length;
@@ -223,11 +222,54 @@ function getDistinctLetters(str1, str2) {
     }
   }
   return newStr.sort().join("");
- 
-
-
+}
+function multiTable(number) {
+  let store = "";
+  for (let i = 1; i <= 10; i++) {
+    store += `${i} * ${number} = ${i * number}\n`;
+  }
+  console.log(store);
+  return store;
 }
 
+function getMostRepeated(str) {
+  let obj = {};
+
+  for (let i = 0; i < str.length; i++) {
+    let count = 1;
+    for (let j = 0; j < str.length; j++) {
+      if (str[i] === str[j]) {
+        obj[str[i]] = count++;
+      }
+    }
+  }
+  let arr = Object.entries(obj);
+  let count = 0;
+  let result = "";
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i][1] > count) {
+      result = arr[i][0];
+      count = arr[i][1];
+    }
+  }
+  return result;
+}
+
+function getFrequencies(str) {
+  let obj = {};
+
+  for (let i = 0; i < str.length; i++) {
+    let count = 1;
+    for (let j = 0; j < str.length; j++) {
+      if (str[i] === str[j] && str[j]!==' ') {
+        obj[str[i]] = count++;
+      }
+    }
+  }
+  return obj;
+}
+
+module.exports = getMostRepeated;
 module.exports = sumAscii;
 module.exports = {
   countVeg,
@@ -244,4 +286,7 @@ module.exports = {
   findUniq,
   store,
   getDistinctLetters,
+  multiTable,
+  getMostRepeated,
+  getFrequencies,
 };
