@@ -16,7 +16,8 @@ const {
   getDistinctLetters,
   multiTable,
   getMostRepeated,
-getFrequencies
+  getFrequencies,
+  numericals,sumEvenNumbers
 } = require("../app");
 describe("sumArgs", () => {
   it("add all passing argument", () => {
@@ -248,7 +249,7 @@ describe("getMostRepeated", () => {
   });
 });
 
-describe.only("getFrequencies", () => {
+describe("getFrequencies", () => {
   it("describe what happens if this test succeeds here", () => {
     expect(getFrequencies("hello world")).toEqual({
       h: 1,
@@ -259,5 +260,15 @@ describe.only("getFrequencies", () => {
       r: 1,
       d: 1,
     });
+  });
+});
+describe("numericals", () => {
+  it("number of strng in passed string", () => {
+    expect(numericals("Hello")).toBe("11121");
+  });
+});
+describe.only("sumEvenNumbers", () => {
+  it("describe what happens if this test succeeds here", () => {
+    expect(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toBe(30)
   });
 });

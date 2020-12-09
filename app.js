@@ -261,16 +261,50 @@ function getFrequencies(str) {
   for (let i = 0; i < str.length; i++) {
     let count = 1;
     for (let j = 0; j < str.length; j++) {
-      if (str[i] === str[j] && str[j]!==' ') {
+      if (str[i] === str[j] && str[j] !== " ") {
         obj[str[i]] = count++;
       }
     }
   }
   return obj;
+
+  // const result = str.split("").reduce((total, cur) => {
+
+  //   total[cur] ? total[cur]++ : (total[cur] = 1);
+  //   return total;
+  // }, {});
+  // console.log(result);
+}
+function numericals(input) {
+  let obj = {};
+  let result = "";
+  for (let i = 0; i < input.length; i++) {
+    let current = input[i];
+    if (obj[current]) {
+      obj[current] += 1;
+    } else {
+      obj[current] = 1;
+    }
+    result += obj[current];
+  }
+  return result;
 }
 
-module.exports = getMostRepeated;
-module.exports = sumAscii;
+function sumEvenNumbers(input) {
+    
+    let count=7;
+return input.reduce((acc,value)=>{
+    if(count>0){
+       
+        if(value%2===0){
+        acc=acc+value;
+        
+        }
+    }
+    return acc;
+},0)
+
+}
 module.exports = {
   countVeg,
   alternateCase,
@@ -289,4 +323,6 @@ module.exports = {
   multiTable,
   getMostRepeated,
   getFrequencies,
+  numericals,
+  sumEvenNumbers,
 };
