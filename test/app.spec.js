@@ -17,7 +17,9 @@ const {
   multiTable,
   getMostRepeated,
   getFrequencies,
-  numericals,sumEvenNumbers
+  numericals,
+  sumEvenNumbers,
+  digits,
 } = require("../app");
 describe("sumArgs", () => {
   it("add all passing argument", () => {
@@ -267,8 +269,21 @@ describe("numericals", () => {
     expect(numericals("Hello")).toBe("11121");
   });
 });
+describe("sumEvenNumbers", () => {
+  it("describe what happens if this test succeeds here", () => {
+    expect(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toBe(30);
+  });
+});
+
+describe("sumEvenNumbers", () => {
+  it("describe what happens if this test succeeds here", () => {
+    expect(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toBe(30);
+  });
+});
 describe.only("sumEvenNumbers", () => {
   it("describe what happens if this test succeeds here", () => {
-    expect(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toBe(30)
+    expect(digits(12345)).toBe(5);
+     expect(digits(1)).toBe(1);
+      expect(digits(9876543210)).toBe(10);
   });
 });

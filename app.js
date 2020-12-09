@@ -303,8 +303,13 @@ return input.reduce((acc,value)=>{
     }
     return acc;
 },0)
-
 }
+function digits(n) {
+  
+    const s=String(n)
+    return s.split('').length
+}
+
 module.exports = {
   countVeg,
   alternateCase,
@@ -325,4 +330,5 @@ module.exports = {
   getFrequencies,
   numericals,
   sumEvenNumbers,
+  digits
 };
