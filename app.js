@@ -291,25 +291,39 @@ function numericals(input) {
 }
 
 function sumEvenNumbers(input) {
-    
-    let count=7;
-return input.reduce((acc,value)=>{
-    if(count>0){
-       
-        if(value%2===0){
-        acc=acc+value;
-        
-        }
+  let count = 7;
+  return input.reduce((acc, value) => {
+    if (count > 0) {
+      if (value % 2 === 0) {
+        acc = acc + value;
+      }
     }
     return acc;
-},0)
+  }, 0);
 }
 function digits(n) {
-  
-    const s=String(n)
-    return s.split('').length
+  const s = String(n);
+  return s.split("").length;
 }
+/*********************************Recursion */
+function factorial(num) {
+  if (num === 0 || num === 1) return 1;
+  if (num > 1) {
+    return num * factorial(num - 1);
+  }
+}
+function sumRecursion(num) {
+  let sum=0;
+  if (num === 1) {
+    return num;
+  }
+  if (num > 1) {
 
+      return sum=sum+sumRecursion(num - 1);
+
+    }
+  console.log(sum);
+}
 module.exports = {
   countVeg,
   alternateCase,
@@ -330,5 +344,7 @@ module.exports = {
   getFrequencies,
   numericals,
   sumEvenNumbers,
-  digits
+  digits,
+  factorial,
+  sumRecursion,
 };

@@ -20,6 +20,8 @@ const {
   numericals,
   sumEvenNumbers,
   digits,
+  factorial,
+  sumRecursion,
 } = require("../app");
 describe("sumArgs", () => {
   it("add all passing argument", () => {
@@ -280,10 +282,24 @@ describe("sumEvenNumbers", () => {
     expect(sumEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])).toBe(30);
   });
 });
-describe.only("sumEvenNumbers", () => {
+describe("sumEvenNumbers", () => {
   it("describe what happens if this test succeeds here", () => {
     expect(digits(12345)).toBe(5);
-     expect(digits(1)).toBe(1);
-      expect(digits(9876543210)).toBe(10);
+    expect(digits(1)).toBe(1);
+    expect(digits(9876543210)).toBe(10);
   });
+});
+describe("factorial", () => {
+  it("return factorial of 0 and 1", () => {
+    const input = 0;
+    expect(factorial(0)).toBe(1);
+
+    expect(factorial(1)).toBe(1);
+    expect(factorial(3)).toBe(6);
+  });
+});
+describe.only("Sum of givin number from 1 through n", () => {
+  const n = 1;
+  // expect(sumRecursion(n)).toBe(1);
+  expect(sumRecursion(3)).toBe(6);
 });
