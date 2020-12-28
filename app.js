@@ -228,7 +228,6 @@ function multiTable(number) {
   for (let i = 1; i <= 10; i++) {
     store += `${i} * ${number} = ${i * number}\n`;
   }
-  console.log(store);
   return store;
 }
 
@@ -313,16 +312,21 @@ function factorial(num) {
   }
 }
 function sumRecursion(num) {
-  let sum=0;
+  let sum = 0;
   if (num === 1) {
     return num;
   }
   if (num > 1) {
-
-      return sum=sum+sumRecursion(num - 1);
-
-    }
-  console.log(sum);
+    return (sum = sum + sumRecursion(num - 1));
+  }
+}
+function revStr(str) {
+  let rev = "";
+  if (str.length < 1) {
+    return str;
+  }
+  rev = str.slice(-1);
+ return rev=rev+revStr(str.slice(0, -1));
 }
 module.exports = {
   countVeg,
@@ -347,4 +351,5 @@ module.exports = {
   digits,
   factorial,
   sumRecursion,
+  revStr,
 };

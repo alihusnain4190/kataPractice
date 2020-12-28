@@ -22,6 +22,7 @@ const {
   digits,
   factorial,
   sumRecursion,
+  revStr,
 } = require("../app");
 describe("sumArgs", () => {
   it("add all passing argument", () => {
@@ -298,8 +299,14 @@ describe("factorial", () => {
     expect(factorial(3)).toBe(6);
   });
 });
-describe.only("Sum of givin number from 1 through n", () => {
+describe("Sum of givin number from 1 through n", () => {
   const n = 1;
   // expect(sumRecursion(n)).toBe(1);
   expect(sumRecursion(3)).toBe(6);
+});
+describe.only("Return reverse of passing string", () => {
+  // const input = "he";
+  // expect(revStr(input)).toBe("eh");
+  expect(revStr("hello")).toBe("olleh");
+  
 });
