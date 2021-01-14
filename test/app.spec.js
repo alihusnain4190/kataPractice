@@ -23,6 +23,8 @@ const {
   factorial,
   sumRecursion,
   revStr,
+  powerOfN,
+  messsegeValid,
 } = require("../app");
 describe("sumArgs", () => {
   it("add all passing argument", () => {
@@ -304,9 +306,31 @@ describe("Sum of givin number from 1 through n", () => {
   // expect(sumRecursion(n)).toBe(1);
   expect(sumRecursion(3)).toBe(6);
 });
-describe.only("Return reverse of passing string", () => {
+describe("Return reverse of passing string", () => {
   // const input = "he";
   // expect(revStr(input)).toBe("eh");
   expect(revStr("hello")).toBe("olleh");
-  
+});
+describe("REturn power of N", () => {
+  const arr = [1, 2, 3, 4];
+  const n = 2;
+
+  expect(powerOfN(arr, n)).toBe(9);
+
+  expect(powerOfN([1, 3, 10, 100], 3)).toBe(1000000);
+
+  expect(powerOfN([6, 31], 3)).toBe(-1);
+});
+
+describe.only("return true if messege is valid", () => {
+  // let str = "3hey5hello2hi";
+  // expect(messsegeValid(str)).toBe(true);
+  // str = "4code13hellocodewars";
+  // expect(messsegeValid(str)).toBe(true);
+  // str = "code4hello5";
+  // expect(messsegeValid(str)).toBe(false);
+  str =
+    "13OlEjcBjfzO10rrkzTKmUQJthY10VjgNcsHgdm";
+
+  expect(messsegeValid(str)).toBe(false);
 });

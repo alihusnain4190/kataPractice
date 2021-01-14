@@ -326,7 +326,49 @@ function revStr(str) {
     return str;
   }
   rev = str.slice(-1);
- return rev=rev+revStr(str.slice(0, -1));
+  return (rev = rev + revStr(str.slice(0, -1)));
+}
+function powerOfN(arr, n) {
+  return arr.reduce((first, data, index) => {
+    if (index === n) {
+      first = Math.pow(data, n);
+    }
+    return first;
+  }, -1);
+}
+function messsegeValid(str) {
+  if (parseInt(str.slice(-1))) {
+    return false;
+  }
+  var numbers = str.match(/\d+/g).map(Number);
+  let totalNumber = numbers.reduce((sum, num) => (sum = sum + num), 0);
+  let total = 0;
+  console.log(totalNumber);
+  for (let i = 0; i < str.length; i++) {
+    if (parseInt(str[i])) {
+    } else {
+      totalNumber--;
+      if (i === 0 || i === str.length) {
+        return false;
+      }
+      if (totalNumber === total) {
+        return true;
+      }
+    }
+  }
+  return false;
+  // let count = 0;
+  // let lastIndex = str.length - 1;
+  // for (let i = 0; i < str.length; i++) {
+  //   if (parseInt(str[i])) {
+  //     count = str[i];
+
+  //     console.log(count);
+  //   } else {
+  //     count--;
+  //     if (count === 0 && i === lastIndex) return true;
+  //   }
+  // }
 }
 module.exports = {
   countVeg,
@@ -352,4 +394,6 @@ module.exports = {
   factorial,
   sumRecursion,
   revStr,
+  powerOfN,
+  messsegeValid,
 };
