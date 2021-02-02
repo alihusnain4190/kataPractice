@@ -374,10 +374,25 @@ function getGrade(s1, s2, s3) {
   const result = (s1 + s2 + s3) / 3;
 
   if (result >= 90 && result <= 100) return "A";
- if (result >= 80 && result < 90) return "B";
- if (result >= 70 && result < 80) return "C";
- if (result >= 60 && result < 70) return "D";
- if (result > 0 && result < 60) return "F";
+  if (result >= 80 && result < 90) return "B";
+  if (result >= 70 && result < 80) return "C";
+  if (result >= 60 && result < 70) return "D";
+  if (result > 0 && result < 60) return "F";
+}
+function extraPerfect(n) {
+   var array = [];
+  
+  for (let i = 1; i <= n; i += 2) {
+    array.push(i)
+  }
+  return array;
+  // let arr = [];
+  // for (let i = 1; i <= n; i++) {
+  //   if (i % 2 !== 0) {
+  //     arr.push(i);
+  //   }
+  // }
+  // return arr;
 }
 module.exports = {
   countVeg,
@@ -406,4 +421,5 @@ module.exports = {
   powerOfN,
   messsegeValid,
   getGrade,
+  extraPerfect,
 };

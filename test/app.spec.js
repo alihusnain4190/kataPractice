@@ -26,6 +26,7 @@ const {
   powerOfN,
   messsegeValid,
   getGrade,
+  extraPerfect,
 } = require("../app");
 describe("sumArgs", () => {
   it("add all passing argument", () => {
@@ -335,10 +336,38 @@ describe("return true if messege is valid", () => {
   expect(messsegeValid(str)).toBe(false);
 });
 describe("getGrade", () => {
-  it.only("return a mean of givin value", () => {
+  it("return a mean of givin value", () => {
     expect(getGrade(95, 90, 93)).toBe("A");
 
     expect(getGrade(92, 93, 94)).toBe("A");
     expect(getGrade(65, 70, 59)).toBe("D");
+  });
+});
+
+describe("extraPerfect", () => {
+  it.only("return a number which first and last bit are set bit", () => {
+    expect(extraPerfect(3)).toEqual([1, 3]);
+    expect(extraPerfect(39)).toEqual([
+      1,
+      3,
+      5,
+      7,
+      9,
+      11,
+      13,
+      15,
+      17,
+      19,
+      21,
+      23,
+      25,
+      27,
+      29,
+      31,
+      33,
+      35,
+      37,
+      39,
+    ]);
   });
 });
