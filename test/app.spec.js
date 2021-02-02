@@ -25,6 +25,7 @@ const {
   revStr,
   powerOfN,
   messsegeValid,
+  getGrade,
 } = require("../app");
 describe("sumArgs", () => {
   it("add all passing argument", () => {
@@ -322,15 +323,22 @@ describe("REturn power of N", () => {
   expect(powerOfN([6, 31], 3)).toBe(-1);
 });
 
-describe.only("return true if messege is valid", () => {
+describe("return true if messege is valid", () => {
   // let str = "3hey5hello2hi";
   // expect(messsegeValid(str)).toBe(true);
   // str = "4code13hellocodewars";
   // expect(messsegeValid(str)).toBe(true);
   // str = "code4hello5";
   // expect(messsegeValid(str)).toBe(false);
-  str =
-    "13OlEjcBjfzO10rrkzTKmUQJthY10VjgNcsHgdm";
+  str = "13OlEjcBjfzO10rrkzTKmUQJthY10VjgNcsHgdm";
 
   expect(messsegeValid(str)).toBe(false);
+});
+describe("getGrade", () => {
+  it.only("return a mean of givin value", () => {
+    expect(getGrade(95, 90, 93)).toBe("A");
+
+    expect(getGrade(92, 93, 94)).toBe("A");
+    expect(getGrade(65, 70, 59)).toBe("D");
+  });
 });
