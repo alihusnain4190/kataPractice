@@ -343,7 +343,6 @@ function messsegeValid(str) {
   var numbers = str.match(/\d+/g).map(Number);
   let totalNumber = numbers.reduce((sum, num) => (sum = sum + num), 0);
   let total = 0;
-  console.log(totalNumber);
   for (let i = 0; i < str.length; i++) {
     if (parseInt(str[i])) {
     } else {
@@ -380,10 +379,10 @@ function getGrade(s1, s2, s3) {
   if (result > 0 && result < 60) return "F";
 }
 function extraPerfect(n) {
-   var array = [];
-  
+  var array = [];
+
   for (let i = 1; i <= n; i += 2) {
-    array.push(i)
+    array.push(i);
   }
   return array;
   // let arr = [];
@@ -393,6 +392,37 @@ function extraPerfect(n) {
   //   }
   // }
   // return arr;
+}
+function findDifference(arr1, arr2) {
+  const mul1 = arr1.reduce((acc, cur) => (acc = acc * cur), 1);
+  const mul2 = arr2.reduce((acc, cur) => (acc = acc * cur), 1);
+  return Math.abs(mul1 - mul2);
+}
+function overTheRoad(house, totalHouse) {
+  let left = [];
+  let right = [];
+  for (let i = 1; i <= totalHouse * 2; i++) {
+    if (i % 2 == 0) {
+      right.push(i);
+    } else {
+      left.push(i);
+    }
+  }
+  right = right.reverse();
+
+  let index = 0;
+  if (house % 2 === 0) {
+    index = right.indexOf(house);
+    return left[index];
+  } else {
+    index = left.indexOf(house);
+    return right[index];
+  }
+  console.log(left);
+  console.log(right);
+  console.log(index);
+  console.log(right[index]);
+  return right[index];
 }
 module.exports = {
   countVeg,
@@ -422,4 +452,6 @@ module.exports = {
   messsegeValid,
   getGrade,
   extraPerfect,
+  findDifference,
+  overTheRoad,
 };

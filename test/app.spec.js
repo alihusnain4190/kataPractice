@@ -27,6 +27,8 @@ const {
   messsegeValid,
   getGrade,
   extraPerfect,
+  findDifference,
+  overTheRoad,
 } = require("../app");
 describe("sumArgs", () => {
   it("add all passing argument", () => {
@@ -345,7 +347,7 @@ describe("getGrade", () => {
 });
 
 describe("extraPerfect", () => {
-  it.only("return a number which first and last bit are set bit", () => {
+  it("return a number which first and last bit are set bit", () => {
     expect(extraPerfect(3)).toEqual([1, 3]);
     expect(extraPerfect(39)).toEqual([
       1,
@@ -369,5 +371,26 @@ describe("extraPerfect", () => {
       37,
       39,
     ]);
+  });
+});
+describe("Difference of Cube", () => {
+  it("return differnce of two passed array after sum", () => {
+    let input1 = [3, 2, 5];
+    let input2 = [1, 4, 4];
+    expect(findDifference(input1, input2)).toBe(14);
+    input1 = [11, 2, 5];
+    input2 = [1, 10, 8];
+    expect(findDifference(input1, input2)).toBe(30);
+  });
+});
+describe.only("Over The Road", () => {
+  it("return house other side of road", () => {
+    let house = 1;
+    let totaHouse = 3;
+    expect(overTheRoad(house, totaHouse)).toBe(6);
+
+    expect(overTheRoad(3, 3)).toBe(4);
+    expect(overTheRoad(3, 5)).toBe(8);
+    expect(overTheRoad(2, 3)).toBe(5);
   });
 });
