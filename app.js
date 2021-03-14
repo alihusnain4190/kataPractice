@@ -399,30 +399,31 @@ function findDifference(arr1, arr2) {
   return Math.abs(mul1 - mul2);
 }
 function overTheRoad(house, totalHouse) {
-  let left = [];
-  let right = [];
-  for (let i = 1; i <= totalHouse * 2; i++) {
-    if (i % 2 == 0) {
-      right.push(i);
-    } else {
-      left.push(i);
-    }
-  }
-  right = right.reverse();
+ return 2 * totalHouse - house + 1
+  // let left = [];
+  // let right = [];
+  // for (let i = 1; i <= totalHouse * 2; i++) {
+  //   if (i % 2 == 0) {
+  //     right.push(i);
+  //   } else {
+  //     left.push(i);
+  //   }
+  // }
+  // right = right.reverse();
 
-  let index = 0;
-  if (house % 2 === 0) {
-    index = right.indexOf(house);
-    return left[index];
-  } else {
-    index = left.indexOf(house);
-    return right[index];
-  }
-  console.log(left);
-  console.log(right);
-  console.log(index);
-  console.log(right[index]);
-  return right[index];
+  // let index = 0;
+  // if (house % 2 === 0) {
+  //   index = right.indexOf(house);
+  //   return left[index];
+  // } else {
+  //   index = left.indexOf(house);
+  //   return right[index];
+  // }
+  // console.log(left);
+  // console.log(right);
+  // console.log(index);
+  // console.log(right[index]);
+  // return right[index];
 }
 module.exports = {
   countVeg,
