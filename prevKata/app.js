@@ -23,9 +23,8 @@ function factorialize(num) {
   // return fac;
 }
 function findLongestWordLength(str) {
-  
   return str.split(" ").reduce((acc, cur) => {
-    if (cur.length >acc) {
+    if (cur.length > acc) {
       acc = cur.length;
     }
     return acc;
@@ -39,11 +38,40 @@ function findLongestWordLength(str) {
   // }
   return count;
 }
+function confirmEnding(str, target) {
+  // return str.endsWith(target);
+  return (n = str.substr(str.length - target.length) === target);
+}
+function repeatStringNumTimes(str, num) {
+  let newStr = "";
+  for (let i = 0; i < num; i++) {
+    newStr = newStr + str;
+  }
+  return newStr;
+}
+function truncateString(str, num) {
+  if (str.length <= num) return str;
+  return str.substr(0, num) + "...";
+}
 
-findLongestWordLength("The quick brown fox jumped over the lazy dog");
+function findElement(arr, func) {
+  for (let i = 0; i < arr.length; i++) {
+    const n = func(arr[i]);
+
+    if (n === true) return arr[i];
+    else "undefined";
+  }
+  return "undefined";
+}
+
 module.exports = {
   convertToF,
   reverseString,
   factorialize,
   findLongestWordLength,
+
+  confirmEnding,
+  repeatStringNumTimes,
+  truncateString,
+  findElement,
 };
