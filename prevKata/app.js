@@ -61,7 +61,50 @@ function findElement(arr, func) {
     if (n === true) return arr[i];
     else "undefined";
   }
-  return "undefined";
+}
+
+function booWho(bool) {
+  // if (bool === true || bool === false ) return true;
+  // else return false;
+  return typeof bool === "boolean";
+}
+function titleCase(str) {
+  // let newStr = [];
+  str = str.toLowerCase().split(" ");
+  // for (let i = 0; i < str.length; i++) {
+  //   newStr.push(str[i][0].toUpperCas3e() + str[i].slice(1, str[i].length+1))
+
+  // }
+  // return newStr.join(' ');
+  const newStr = str.map((s) => {
+    return s.replace(s.charAt(0), s.charAt(0).toUpperCase());
+  });
+
+  return newStr.join(" ");
+}
+
+function frankenSplice(arr1, arr2, n) {
+  // let   newArr = [...arr2]
+  //   for (let i = 0; i < arr1.length; i++) {
+  //     newArr.splice(n,0, arr1[i]);
+  //     n=n+1;
+  //   }
+  //   return newArr;
+  let localArr = arr2.slice();
+  localArr.splice(n, 0, ...arr1);
+  return localArr;
+}
+function bouncer(arr) {
+//this one copy from freecodecamp
+
+  // let newArray = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   if (arr[i]) newArray.push(arr[i]);
+  // }
+  // return newArray;
+  return arr.filter((element) => {
+    return element;
+  });
 }
 
 module.exports = {
@@ -69,9 +112,12 @@ module.exports = {
   reverseString,
   factorialize,
   findLongestWordLength,
-
   confirmEnding,
   repeatStringNumTimes,
   truncateString,
   findElement,
+  booWho,
+  titleCase,
+  frankenSplice,
+  bouncer,
 };

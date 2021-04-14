@@ -7,6 +7,10 @@ const {
   repeatStringNumTimes,
   truncateString,
   findElement,
+  booWho,
+  titleCase,
+  frankenSplice,
+  bouncer,
 } = require("./app.js");
 describe("convertToF", () => {
   it("Convert Celsius to Fahrenheit", () => {
@@ -70,8 +74,50 @@ describe("truncateString", () => {
     )
   ).toEqual("A-tisket a-tasket A green and yellow basket");
 });
-describe.only("findElement", () => {
+describe("findElement", () => {
   it("returns the first element in it that passes a 'truth test'. ", () => {
     expect(findElement([1, 3, 5, 8, 9, 10], (num) => num % 2 === 0)).toBe(8);
+  });
+});
+describe("booWho", () => {
+  it("return true or false if value is primitive", () => {
+    expect(booWho(true)).toBe(true);
+  });
+  it("return true or false if value is primitive", () => {
+    expect(booWho(false)).toBe(true);
+  });
+
+  it("return true or false if value is primitive", () => {
+    expect(booWho([1, 2, 3])).toBe(false);
+    expect(booWho([].slice)).toBe(false);
+    expect(booWho(NaN)).toBe(false);
+    expect(booWho("a")).toBe(false);
+    expect(booWho(1)).toBe(false);
+    expect(booWho("false")).toBe(false);
+    expect(booWho("true")).toBe(false);
+  });
+});
+describe("titleCase", () => {
+  test("Return the provided string with the first letter of each word capitalize", () => {
+    expect(titleCase("I'm a little tea pot")).toEqual("I'm A Little Tea Pot");
+    expect(titleCase("sHoRt AnD sToUt")).toEqual("Short And Stout");
+  });
+});
+describe("frankenSplice", () => {
+  test("Return Copy each element of the first array into the second array, according to passing index", () => {
+    expect(frankenSplice([1, 2, 3], [4, 5], 1)).toEqual([4, 1, 2, 3, 5]);
+    expect(frankenSplice([1, 2], ["a", "b"], 1)).toEqual(["a", 1, 2, "b"]);
+  });
+});
+describe("bouncer", () => {
+  test.only("Remove all false valu from passed array", () => {
+    let input = [7, "ate", false, 9];
+    let input2=[7,"", "ate", false, 9]
+    let input3=["a", "b", "c"]
+    expect(bouncer(input)).toEqual([7, "ate", 9]);
+    expect(bouncer(input2)).toEqual([7, "ate", 9]);
+    expect(bouncer(input3)).toEqual(["a", "b", "c"]);
+    expect(bouncer([null, NaN, 1, 2, undefined])).toEqual[1,2]
+
   });
 });
