@@ -11,6 +11,8 @@ const {
   titleCase,
   frankenSplice,
   bouncer,
+  getIndexToIns,
+  mutation,
 } = require("./app.js");
 describe("convertToF", () => {
   it("Convert Celsius to Fahrenheit", () => {
@@ -110,14 +112,26 @@ describe("frankenSplice", () => {
   });
 });
 describe("bouncer", () => {
-  test.only("Remove all false valu from passed array", () => {
+  test("Remove all false valu from passed array", () => {
     let input = [7, "ate", false, 9];
-    let input2=[7,"", "ate", false, 9]
-    let input3=["a", "b", "c"]
+    let input2 = [7, "", "ate", false, 9];
+    let input3 = ["a", "b", "c"];
     expect(bouncer(input)).toEqual([7, "ate", 9]);
     expect(bouncer(input2)).toEqual([7, "ate", 9]);
     expect(bouncer(input3)).toEqual(["a", "b", "c"]);
-    expect(bouncer([null, NaN, 1, 2, undefined])).toEqual[1,2]
+    expect(bouncer([null, NaN, 1, 2, undefined])).toEqual[(1, 2)];
+  });
+});
+describe("getIndexToIns", () => {
+  it("return lowest index according to passed value", () => {
+    expect(getIndexToIns([10, 20, 30, 40, 50], 35)).toBe(3);
+    expect(getIndexToIns([10, 20, 30, 40, 50], 30)).toBe(2);
+    expect(getIndexToIns([40, 60], 50)).toBe(1);
+  });
+});
 
+describe("mutation", () => {
+  it.only("Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.", () => {
+    expect(mutation(["hello", "hey"])).toBe(false);
   });
 });

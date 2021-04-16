@@ -95,7 +95,7 @@ function frankenSplice(arr1, arr2, n) {
   return localArr;
 }
 function bouncer(arr) {
-//this one copy from freecodecamp
+  //this one copy from freecodecamp
 
   // let newArray = [];
   // for (let i = 0; i < arr.length; i++) {
@@ -105,6 +105,30 @@ function bouncer(arr) {
   return arr.filter((element) => {
     return element;
   });
+}
+function getIndexToIns(arr, num) {
+  // let index = 0;
+  // for (let i = 0; i < arr.length; i++) {
+  //   if (arr[i] < num) {
+  //     index = index + 1;
+  //   }
+  // }
+  // return index;
+
+  return arr.reduce((acc, curVal) => {
+    if (curVal < num) {
+      acc = acc + 1;
+    }
+    return acc;
+  }, 0);
+}
+function mutation(arr) {
+  const str1 = arr[0];
+  const str2 = arr[1];
+
+  for(let i=0;i<str1.length;i++){
+
+}
 }
 
 module.exports = {
@@ -120,4 +144,6 @@ module.exports = {
   titleCase,
   frankenSplice,
   bouncer,
+  getIndexToIns,
+  mutation,
 };
